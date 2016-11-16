@@ -84,16 +84,21 @@ function createBoard() {
       board.cells.push({
         row: i,
         col: j,
-        isMine: false,
+        //create random mines
+        isMine: Math.random() < 0.3 ? true : false,
         hidden: true
       })
     }
   }
 }
 
+
+var chosenValue = Math.random() < 0.3 ? true : false;
+
 function startGame() {
     // Don't remove this function call: it makes the game work!
     createBoard();
+
         for (var i = 0; i < board.cells.length; i++) {
         board.cells[i].surroundingMines = countSurroundingMines(board.cells[i]);
     }
