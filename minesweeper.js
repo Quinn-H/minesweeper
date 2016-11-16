@@ -1,81 +1,17 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
 // Define your `board` object here!
-/*var board = {
-    cells: [
-        {
-            row: 0,
-            col: 0,
-            isMine: false,
-            hidden: true,
-            surroundingMines: 2,
-            isMarked: true
-        }, {
-            row: 0,
-            col: 1,
-            isMine: false,
-            hidden: true,
-            surroundingMines: 2,
-            isMarked: true
-        }, {
-            row: 0,
-            col: 2,
-            isMine: false,
-            hidden: true,
-            surroundingMines: 2,
-            isMarked: true
-        }, {
-            row: 1,
-            col: 0,
-            isMine: false,
-            hidden: true,
-            surroundingMines: 2,
-            isMarked: true
-        }, {
-            row: 1,
-            col: 1,
-            isMine: true,
-            hidden: true,
-            surroundingMines: 2,
-            isMarked: true
-        }, {
-            row: 1,
-            col: 2,
-            isMine: false,
-            hidden: true,
-            surroundingMines: 2,
-            isMarked: true
-        }, {
-            row: 2,
-            col: 0,
-            isMine: true,
-            hidden: true,
-            surroundingMines: 2,
-            isMarked: true
-        }, {
-            row: 2,
-            col: 1,
-            isMine: true,
-            hidden: true,
-            surroundingMines: 2,
-            isMarked: true
-        }, {
-            row: 2,
-            col: 2,
-            isMine: false,
-            hidden: true,
-            surroundingMines: 2,
-            isMarked: true
-        }
-    ]
 
-}*/
 
 var board = {
   cells:[]
 }
+var size = 5
 
-var size = 6
+var audio = new Audio ("audio/Laser_Cannon-Mike_Koenig-797224747.mp3");
+
+
+
 
 //create game board
 function createBoard() {
@@ -93,10 +29,10 @@ function createBoard() {
 }
 
 
-var chosenValue = Math.random() < 0.3 ? true : false;
 
 function startGame() {
     // Don't remove this function call: it makes the game work!
+
     createBoard();
 
         for (var i = 0; i < board.cells.length; i++) {
@@ -128,7 +64,10 @@ function checkForWin() {
     // detected that they've won, that is!)
     console.log("check it");
     lib.displayMessage('You win!')
+    audio.play();
 }
+
+
 
 // Define this function to count the number of mines around the cell
 // (there could be as many as 8). You don't have to get the surrounding
