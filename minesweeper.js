@@ -21,7 +21,7 @@ function createBoard() {
         row: i,
         col: j,
         //create random mines
-        isMine: Math.random() < 0.3 ? true : false,
+        isMine: Math.random() < 0.1 ? true : false,
         hidden: true
       })
     }
