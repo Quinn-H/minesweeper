@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
 // Define your `board` object here!
-var board = {
+/*var board = {
     cells: [
         {
             row: 0,
@@ -69,14 +69,36 @@ var board = {
         }
     ]
 
+}*/
+
+var board = {
+  cells:[]
+}
+
+var size = 6
+
+//create game board
+function createBoard() {
+  for (var i = 0; i < size; i++) {
+    for (var j = 0; j < size; j++) {
+      board.cells.push({
+        row: i,
+        col: j,
+        isMine: false,
+        hidden: true
+      })
+    }
+  }
 }
 
 function startGame() {
     // Don't remove this function call: it makes the game work!
-    for (var i = 0; i < board.cells.length; i++) {
+    createBoard();
+        for (var i = 0; i < board.cells.length; i++) {
         board.cells[i].surroundingMines = countSurroundingMines(board.cells[i]);
     }
     lib.initBoard();
+
     //left click
     document.addEventListener('click', checkForWin);
     //right click
